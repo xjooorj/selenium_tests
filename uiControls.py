@@ -13,4 +13,15 @@ for checkbox in checkboxes:
         assert checkbox.is_selected()
         break
 
-time.sleep(1)
+buttons = driver.find_elements(By.XPATH, "//input[@class = 'radioButton']")
+for button in buttons:
+    if button.get_attribute('value') == "radio1":
+        button.click()
+        assert button.is_selected()
+        break
+#Needs fixing
+driver.find_element(By.ID, "autocomplete").send_keys("Uzbekistan")
+driver.find_element(By.CSS_SELECTOR, "input [name = 'enter-name']").send_keys("khojiakbar")
+driver.find_element(By.ID, "confirmbtn").click()
+
+time.sleep(3)
