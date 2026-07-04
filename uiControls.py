@@ -20,8 +20,12 @@ for button in buttons:
         assert button.is_selected()
         break
 #Needs fixing
-driver.find_element(By.ID, "autocomplete").send_keys("Uzbekistan")
-driver.find_element(By.CSS_SELECTOR, "input [name = 'enter-name']").send_keys("khojiakbar")
-driver.find_element(By.ID, "confirmbtn").click()
+#driver.find_element(By.ID, "autocomplete").send_keys("Uzbekistan")
+#driver.find_element(By.CSS_SELECTOR, "input [name = 'enter-name']").send_keys("khojiakbar")
+#driver.find_element(By.ID, "confirmbtn").click()
+
+assert driver.find_element(By.ID, "displayed-text").is_displayed()
+driver.find_element(By.ID, "hide-textbox").click()
+assert not driver.find_element(By.ID, "displayed-text").is_displayed()
 
 time.sleep(3)
